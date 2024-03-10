@@ -3,7 +3,7 @@
 A ready to go Single Page App in a container set up by Poetry featuring Django, Django Rest Framework, and  Svelte.
 
 1. `git clone`
-2. `cd restful_svelte`
+2. `cd restful_svelte_docker`
 3. `cd frontend`
 4. `npm install`
 5. `cd ..`
