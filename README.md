@@ -10,8 +10,9 @@ A ready to go Single Page App in a container set up by Poetry featuring Django, 
 6. `docker-compose up`
 7. Open a new terminal
 8. `cd backend`
-9. `poetry shell`
-10. `python manage.py migrate`
+9. `docker-compose exec backend bash`
+10. `poetry shell`
+11. `python manage.py migrate`
 
 ## That's all there is to it
 
