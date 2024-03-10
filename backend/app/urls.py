@@ -24,6 +24,6 @@ from app.api.views import GreetingApi
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),
-    path("api/greet", GreetingApi.as_view()),
+    path("api/greet/", GreetingApi.as_view()),
     path("", SpaView.as_view(), name="spa"),
 ]

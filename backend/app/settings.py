@@ -25,9 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-@tp*87l%uadq5%(&2fv10efi@%uxg+gi8^eb^nwnyx#i@suel0"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = "DJANGO_DEBUG" in os.environ and os.environ["DJANGO_DEBUG"] == "ON"
+# DEBUG = "DJANGO_DEBUG" in os.environ and os.environ["DJANGO_DEBUG"] == "ON"
+DEBUG = True
 
-ALLOWED_HOSTS = []
+print("DEBUG:", DEBUG)
+
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -44,7 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # <-- here
+    # "whitenoise.middleware.WhiteNoiseMiddleware",  # <-- here
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -114,10 +117,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'app', 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'app', 'staticfiles') <- For production
 STATIC_URL = "/static/"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "app", "static"),)
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage" <- For production
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "app", "static"),
+
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
